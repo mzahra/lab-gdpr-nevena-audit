@@ -39,8 +39,8 @@ Personal data categories and special-category risk are tabulated in Part 2, so n
 | Questions (free text) | Ask mode | Generate grounded answers | Yes, via OpenAI/Pinecone/Cohere (all US) | Possible if volunteered |
 | Learning profile | Learn mode | Personalize curriculum | Likely, if OpenAI personalizes | Unlikely |
 | Conversation history | Ask/Learn | Session context for follow-ups | Yes, same vendors | Same as questions |
-| Quiz responses | Learn mode | Assess progress, feedback | Possibly, if LLM-graded | Unlikely |
-| Search keywords | Monitor mode | Query public regulatory sources | Unclear, gap in brief | Unlikely |
+| Quiz responses | Learn mode | Assess progress, feedback | Likely, if LLM-graded | Unlikely |
+| Search keywords | Monitor mode | Query public regulatory sources | Cannot determine from brief | Unlikely |
 
 Retention stated as session-only; vendor-side retention (OpenAI/Pinecone/Cohere) is not confirmed.
 
@@ -60,10 +60,10 @@ International transfer: all three vendors are US-based. Mechanism needed: SCCs p
 
 ## Part 3: Clarifying questions log
 
-1. **Accounts or session-only in production?** Affects retention rules and DSR handling. Assumption: session-only, and "progression" is a planned feature not yet built.
-2. **DPAs signed with OpenAI, Pinecone, Cohere?** Without one, using a processor for personal data is a gap on its own, and vendor terms may allow training on submitted data. Assumption: no DPA in place yet.
-3. **What processing region and transfer mechanism per vendor?** Core Chapter V requirement. Assumption: default US region, SCCs needed and currently undocumented.
-4. **Is there a published privacy notice?** Article 13/14 requirement, plus AI-specific transparency. Assumption: none exists yet.
+1. **Accounts or session-only in production?** Affects retention rules and the data subject rights (DSR) obligations under Articles 15 to 22. Assumption: session-only, and "progression" is a planned feature not yet built.
+2. **DPAs signed with OpenAI, Pinecone, Cohere?** Article 28 requirement. Without one, using a processor for personal data is a gap on its own, and vendor terms may allow training on submitted data (purpose limitation, Article 5(1)(b)). Assumption: no DPA in place yet.
+3. **What processing region and transfer mechanism per vendor?** Chapter V international transfer requirement. Assumption: default US region, SCCs needed and currently undocumented.
+4. **Is there a published privacy notice?** Articles 13/14 transparency requirement, plus AI-specific transparency expectations. Assumption: none exists yet.
 
 ---
 
@@ -153,3 +153,14 @@ Status: done, held with Nevena on 2026-08-19.
    - I added that she didn't: a severity rating (Blocking/Significant/Minor) and a named escalation path per finding, following the lab's required structure. Her memo has a "top three actions" list but doesn't grade each gap that way.
    - One useful mismatch: I flagged "lawful basis not documented in a reviewable form" as a Minor finding, since nothing about it was visible to me. She had, in fact, already written a full lawful basis table, just not shared per the lab's ground rules. This shows a real limit of external review: an auditor can flag something as "missing" when it actually exists but simply wasn't in scope to share.
 6. **Joint closing note (required):** Self-assessment and independent review caught different things for structural reasons, not effort. Nevena's self-audit surfaced more of the internal accountability paperwork (RoPA, LIA, incident response) because she has visibility into features and internal state an outside auditor cannot see.
+
+---
+
+## Part 6: Stretch, remediation plan for Finding 2
+
+Finding 2 (missing Data Processing Agreements with OpenAI, Pinecone, and Cohere) is the blocking finding, so it is the one that needs a concrete plan.
+
+- **Artifact:** an Article 28 Data Processing Agreement with each of the three vendors, plus a short written confirmation that the DPA terms exclude use of submitted data for the vendor's own model training.
+- **Owner:** the controller (Nevena's team as the DrugDev-AI operator), with input from legal or external counsel to review each vendor's standard DPA terms before signing.
+- **Timeline:** a realistic target is two to three weeks. Signing a vendor's standard DPA is usually fast, closer to days, but confirming and, if needed, negotiating the model-training exclusion can take longer and should not be skipped to save time.
+- **Evidence for a regulator:** the three signed DPAs on file, each referencing the specific DrugDev-AI processing activity, plus a short internal note listing the DPA date, vendor, and confirmation that model-training use is excluded. That combination shows the DPA exists and that its terms were actually checked, not just filed away.
