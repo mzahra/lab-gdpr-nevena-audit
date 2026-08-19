@@ -21,7 +21,7 @@
 
 ## Part 1: Read and annotate
 
-Personal data categories and special-category risk are tabulated in Part 2, so not repeated here.
+**Personal data categories marked:** questions, learning profile, conversation history, quiz responses, search keywords (full table in Part 2). **Special category status:** none requested by design, but free text (questions, conversation history) carries the risk, since a user could volunteer health, ethnicity, political, or religious information.
 
 **Unclear:** vendor-side retention once data leaves the session; whether Learn mode's "progression" tracking needs persistent storage that isn't described anywhere; hosting region.
 
