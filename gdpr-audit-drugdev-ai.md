@@ -5,11 +5,11 @@
 **Project audited:** [DrugDev-AI](https://github.com/nevena-mi/DrugDev-AI), an AI assistant for pharmaceutical drug development and regulatory science
 **Date:** 2026-08-19
 **Related work:** I also audited this project for the EU AI Act, see [the PR](https://github.com/ai-consulting-bootcamp/lab-eu-ai-act-peer-audit/pull/5/changes). This is the separate GDPR audit, done independently.
-**Ground rules followed:** I worked independently from Nevena until the Phase 5 debrief, with no discussion of findings beforehand. The only material exchanged before the audit was the data processing brief (Part 0) and the public architecture docs it points to. Where the brief was silent, I logged the gap as a clarifying question (Part 3) and stated a provisional assumption instead of guessing.
+**Ground rules followed:** I worked independently from Nevena until the Phase 5 debrief, with no discussion of findings beforehand. The only material exchanged before the audit was the data processing brief (Phase 0) and the public architecture docs it points to. Where the brief was silent, I logged the gap as a clarifying question (Phase 3) and stated a provisional assumption instead of guessing.
 
 ---
 
-## Part 0: Data processing brief
+## Phase 0: Data processing brief
 
 - DrugDev-AI has three modes: Ask (RAG question answering), Learn (curriculum with auto-generated lessons and quizzes), Monitor (aggregates live regulatory updates).
 - Personal data collected, all user-provided: questions, learning profiles, conversation history, quiz responses, search keywords. Retained "only for the active session."
@@ -19,9 +19,9 @@
 
 ---
 
-## Part 1: Read and annotate
+## Phase 1: Read and annotate
 
-**Personal data categories marked:** questions, learning profile, conversation history, quiz responses, search keywords (full table in Part 2). **Special category status:** none requested by design, but free text (questions, conversation history) carries the risk, since a user could volunteer health, ethnicity, political, or religious information.
+**Personal data categories marked:** questions, learning profile, conversation history, quiz responses, search keywords (full table in Phase 2). **Special category status:** none requested by design, but free text (questions, conversation history) carries the risk, since a user could volunteer health, ethnicity, political, or religious information.
 
 **Unclear:** vendor-side retention once data leaves the session; whether Learn mode's "progression" tracking needs persistent storage that isn't described anywhere; hosting region.
 
@@ -31,7 +31,7 @@
 
 ---
 
-## Part 2: Data and role map
+## Phase 2: Data and role map
 
 **Personal data summary:**
 
@@ -59,7 +59,7 @@ International transfer: all three vendors are US-based. Mechanism needed: SCCs p
 
 ---
 
-## Part 3: Clarifying questions log
+## Phase 3: Clarifying questions log
 
 1. **Accounts or session-only in production?** Affects retention rules and the data subject rights (DSR) obligations under Articles 15 to 22. Assumption: session-only, and "progression" is a planned feature not yet built.
 2. **DPAs signed with OpenAI, Pinecone, Cohere?** Article 28 requirement. Without one, using a processor for personal data is a gap on its own, and vendor terms may allow training on submitted data (purpose limitation, Article 5(1)(b)). Assumption: no DPA in place yet.
@@ -68,7 +68,7 @@ International transfer: all three vendors are US-based. Mechanism needed: SCCs p
 
 ---
 
-## Part 4: Audit report
+## Phase 4: Audit report
 
 ### Section 1: System summary
 
@@ -76,7 +76,7 @@ DrugDev-AI is a capstone AI assistant for pharma regulatory science, with three 
 
 ### Section 2: Data and role map summary
 
-Personal data is mostly free text plus derived data, all stated session-only (Part 2). Nevena's team is the controller; OpenAI, Pinecone, and Cohere are processors, all US-based, so every one is an international transfer. No external client is defined at this stage.
+Personal data is mostly free text plus derived data, all stated session-only (Phase 2). Nevena's team is the controller; OpenAI, Pinecone, and Cohere are processors, all US-based, so every one is an international transfer. No external client is defined at this stage.
 
 ### Section 3: Compliance findings
 
@@ -140,7 +140,7 @@ Not a legal opinion, not a DPIA, not a certification of compliance. An independe
 
 ---
 
-## Part 5: Debrief notes
+## Phase 5: Debrief notes
 
 Status: done, held with Nevena on 2026-08-19.
 
@@ -157,15 +157,15 @@ Status: done, held with Nevena on 2026-08-19.
 
 ---
 
-## Part 6: Reinforce
+## Phase 6: Reinforce
 
-All four of my clarifying questions (Part 3) stay unanswered even after reading DrugDev-AI's public repo docs directly, not just the brief: they cover technical architecture in detail but have no governance layer at all, no retention notes, no vendor terms, no data flow docs.
+All four of my clarifying questions (Phase 3) stay unanswered even after reading DrugDev-AI's public repo docs directly, not just the brief: they cover technical architecture in detail but have no governance layer at all, no retention notes, no vendor terms, no data flow docs.
 
 One framing difference against Nevena's self-audit: I collapsed the role map into a single Controller. Her version separates "Client (operator)" from "Development team," which is the more accurate model once DrugDev-AI is handed off to a real client rather than self-hosted.
 
 ---
 
-## Part 7: Stretch, remediation plan for Finding 2
+## Phase 7: Stretch, remediation plan for Finding 2
 
 Finding 2 (missing Data Processing Agreements with OpenAI, Pinecone, and Cohere) is the blocking finding, so it is the one that needs a concrete plan.
 
