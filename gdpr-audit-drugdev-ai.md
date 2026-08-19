@@ -1,6 +1,6 @@
 # GDPR audit: DrugDev-AI
 
-**Auditor:** Zahra
+**Auditor:** Zahra Moghaddasi
 **Teammate / builder:** Nevena
 **Project audited:** [DrugDev-AI](https://github.com/nevena-mi/DrugDev-AI), an AI assistant for pharmaceutical drug development and regulatory science
 **Date:** 2026-08-19
