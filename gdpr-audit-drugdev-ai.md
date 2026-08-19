@@ -5,6 +5,7 @@
 **Project audited:** [DrugDev-AI](https://github.com/nevena-mi/DrugDev-AI), an AI assistant for pharmaceutical drug development and regulatory science
 **Date:** 2026-08-19
 **Related work:** I also audited this project for the EU AI Act, see [the PR](https://github.com/ai-consulting-bootcamp/lab-eu-ai-act-peer-audit/pull/5/changes). This is the separate GDPR audit, done independently.
+**Ground rules followed:** I worked independently from Nevena until the Phase 5 debrief, with no discussion of findings beforehand. The only material exchanged before the audit was the data processing brief (Part 0) and the public architecture docs it points to. Where the brief was silent, I logged the gap as a clarifying question (Part 3) and stated a provisional assumption instead of guessing.
 
 ---
 
@@ -156,7 +157,15 @@ Status: done, held with Nevena on 2026-08-19.
 
 ---
 
-## Part 6: Stretch, remediation plan for Finding 2
+## Part 6: Reinforce
+
+All four of my clarifying questions (Part 3) stay unanswered even after reading DrugDev-AI's public repo docs directly, not just the brief: they cover technical architecture in detail but have no governance layer at all, no retention notes, no vendor terms, no data flow docs.
+
+One framing difference against Nevena's self-audit: I collapsed the role map into a single Controller. Her version separates "Client (operator)" from "Development team," which is the more accurate model once DrugDev-AI is handed off to a real client rather than self-hosted.
+
+---
+
+## Part 7: Stretch, remediation plan for Finding 2
 
 Finding 2 (missing Data Processing Agreements with OpenAI, Pinecone, and Cohere) is the blocking finding, so it is the one that needs a concrete plan.
 
